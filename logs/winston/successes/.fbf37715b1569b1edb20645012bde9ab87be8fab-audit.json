@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "/mnt/2ED6AF4CD6AF12DF/0_Job/all prectiess/jonkar vai/New/all prectis/next-level/misson 6/university-management-core-service-starter/logs/winston/successes/.fbf37715b1569b1edb20645012bde9ab87be8fab-audit.json",
+    "files": [
+        {
+            "date": 1693952147574,
+            "name": "/mnt/2ED6AF4CD6AF12DF/0_Job/all prectiess/jonkar vai/New/all prectis/next-level/misson 6/university-management-core-service-starter/logs/winston/successes/phu-2023-06-09-04-success.log",
+            "hash": "dcd3db4ac31c8f5e0cb43629068d19d42d4ef1e7dbe3a39081e13e12cd6c5c73"
+        },
+        {
+            "date": 1693996117638,
+            "name": "/mnt/2ED6AF4CD6AF12DF/0_Job/all prectiess/jonkar vai/New/all prectis/next-level/misson 6/university-management-core-service-starter/logs/winston/successes/phu-2023-06-09-16-success.log",
+            "hash": "7cf98b89212198fd8d3aa06bda6054fd0f31a99dfae97ad8a5bc1c048e5411d4"
+        },
+        {
+            "date": 1694002166732,
+            "name": "/mnt/2ED6AF4CD6AF12DF/0_Job/all prectiess/jonkar vai/New/all prectis/next-level/misson 6/university-management-core-service-starter/logs/winston/successes/phu-2023-06-09-18-success.log",
+            "hash": "34e05f7cb51376131b5463f50d61679719008f21af5a768b1e7576804c1754ec"
+        },
+        {
+            "date": 1694014990932,
+            "name": "/mnt/2ED6AF4CD6AF12DF/0_Job/all prectiess/jonkar vai/New/all prectis/next-level/misson 6/university-management-core-service-starter/logs/winston/successes/phu-2023-06-09-21-success.log",
+            "hash": "2f4011c88905b92d499baf1835386d6066a1696b5ef9607a4e30d57ac6990221"
+        }
+    ],
+    "hashType": "sha256"
+}
