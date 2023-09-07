@@ -1,4 +1,6 @@
 import { AcademicSemester, Prisma } from '@prisma/client';
+import httpStatus from 'http-status';
+import ApiError from '../../../errors/ApiError';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
 import { IGenericResponse } from '../../../interfaces/common';
 import { IPaginationOptions } from '../../../interfaces/pagination';
@@ -77,6 +79,8 @@ const getAllFromBD = async (
 };
 
 const getDataById = async (id: string): Promise<AcademicSemester | null> => {
+  if (!id) throw new ApiError(httpStatus.BAD_REQUEST, 'Id is required');
+
   const result = await prisma.academicSemester.findUnique({
     where: {
       id,
@@ -86,8 +90,32 @@ const getDataById = async (id: string): Promise<AcademicSemester | null> => {
   return result;
 };
 
+const updateOneInDB = async (
+  id: string,
+  payload: Partial<AcademicSemester>
+): Promise<AcademicSemester> => {
+  const result = await prisma.academicSemester.update({
+    where: {
+      id,
+    },
+    data: payload,
+  });
+  return result;
+};
+
+const deleteByIdFromDB = async (id: string): Promise<AcademicSemester> => {
+  const result = await prisma.academicSemester.delete({
+    where: {
+      id,
+    },
+  });
+  return result;
+};
+
 export const AcademicSemesterServices = {
   insertIntoDB,
   getAllFromBD,
   getDataById,
+  updateOneInDB,
+  deleteByIdFromDB,
 };

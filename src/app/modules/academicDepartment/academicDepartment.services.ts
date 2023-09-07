@@ -1,14 +1,14 @@
 import { AcademicDepartment, Prisma } from '@prisma/client';
-import prisma from '../../../shared/prisma';
-import { IAcademicDepartmentFilterRequest } from './academicDepartment.interface';
-import { IPaginationOptions } from '../../../interfaces/pagination';
-import { IGenericResponse } from '../../../interfaces/common';
 import { paginationHelpers } from '../../../helpers/paginationHelper';
+import { IGenericResponse } from '../../../interfaces/common';
+import { IPaginationOptions } from '../../../interfaces/pagination';
+import prisma from '../../../shared/prisma';
 import {
   academicDepartmentRelationalFields,
   academicDepartmentRelationalFieldsMapper,
   academicDepartmentSearchableFields,
 } from './academicDepartment.constants';
+import { IAcademicDepartmentFilterRequest } from './academicDepartment.interface';
 
 const insertIntoDB = async (
   data: AcademicDepartment
@@ -108,8 +108,38 @@ const getByIdFromDB = async (
   return result;
 };
 
+const updateOneInDB = async (
+  id: string,
+  payload: Partial<AcademicDepartment>
+): Promise<AcademicDepartment> => {
+  const result = await prisma.academicDepartment.update({
+    where: {
+      id,
+    },
+    data: payload,
+    include: {
+      academicFaculty: true,
+    },
+  });
+  return result;
+};
+
+const deleteByIdFromDB = async (id: string): Promise<AcademicDepartment> => {
+  const result = await prisma.academicDepartment.delete({
+    where: {
+      id,
+    },
+    include: {
+      academicFaculty: true,
+    },
+  });
+  return result;
+};
+
 export const AcademicDepartmentService = {
   insertIntoDB,
   getAllFromDB,
   getByIdFromDB,
+  updateOneInDB,
+  deleteByIdFromDB,
 };

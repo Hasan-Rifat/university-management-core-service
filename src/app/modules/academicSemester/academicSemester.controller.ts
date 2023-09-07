@@ -33,10 +33,33 @@ const getAllFromBD = catchAsync(async (req: Request, res: Response) => {
 
 const getDataById = catchAsync(async (req: Request, res: Response) => {
   const result = await AcademicSemesterServices.getDataById(req.params.id);
+
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Academic Semster data fetched!!',
+    message: 'Academic Semester data fetched!!',
+    data: result,
+  });
+});
+
+const updateOneInDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await AcademicSemesterServices.updateOneInDB(id, req.body);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Academic Semester updated successfully',
+    data: result,
+  });
+});
+
+const deleteByIdFromDB = catchAsync(async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const result = await AcademicSemesterServices.deleteByIdFromDB(id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Academic Semester delete successfully',
     data: result,
   });
 });
@@ -45,4 +68,6 @@ export const AcademicSemesterController = {
   insertIntoDB,
   getAllFromBD,
   getDataById,
+  updateOneInDB,
+  deleteByIdFromDB,
 };
