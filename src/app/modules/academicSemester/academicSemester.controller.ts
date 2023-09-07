@@ -31,7 +31,18 @@ const getAllFromBD = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const getDataById = catchAsync(async (req: Request, res: Response) => {
+  const result = await AcademicSemesterServices.getDataById(req.params.id);
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: 'Academic Semster data fetched!!',
+    data: result,
+  });
+});
+
 export const AcademicSemesterController = {
   insertIntoDB,
   getAllFromBD,
+  getDataById,
 };
