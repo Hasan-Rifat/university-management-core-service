@@ -9,7 +9,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "academic_semester" (
     "id" TEXT NOT NULL,
-    "year" TEXT NOT NULL,
+    "year" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
     "code" TEXT NOT NULL,
     "startMonth" TEXT NOT NULL,
@@ -47,6 +47,7 @@ CREATE TABLE "students" (
     "firstName" TEXT NOT NULL,
     "lastName" TEXT NOT NULL,
     "middleName" TEXT NOT NULL,
+    "profileImage" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "contactNo" TEXT NOT NULL,
     "gender" TEXT NOT NULL,
@@ -64,8 +65,10 @@ CREATE TABLE "students" (
 CREATE TABLE "faculties" (
     "id" TEXT NOT NULL,
     "facultyId" TEXT NOT NULL,
+    "firstName" TEXT NOT NULL,
     "lastName" TEXT NOT NULL,
     "middleName" TEXT NOT NULL,
+    "profileImage" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "contactNo" TEXT NOT NULL,
     "gender" TEXT NOT NULL,
